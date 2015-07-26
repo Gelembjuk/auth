@@ -1,0 +1,26 @@
+{
+    "name": "gelembjuk/auth",
+    "description": "PHP Package for easy login to a web site with popular social networks. Now supports login with Facebook, Google, Twitter, LinkedIn.",
+    "keywords": [
+        "social login",
+        "facebook",
+	"google",
+	"twitter",
+	"linkedin"
+    ],
+    "require": {
+        "psr/log": "1.0.*"
+    },
+    "require-dev":{},
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Gelembjuk",
+            "email": "roman@gelembjuk.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Gelembjuk":"src/" }
+    },
+    "minimum-stability": "stable"
+}
