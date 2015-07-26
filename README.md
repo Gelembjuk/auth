@@ -6,7 +6,7 @@ Now supports login with Facebook, Google, Twitter, LinkedIn.
 
 ### Installation
 
-Using composer: [gelembjuk/auth](http://packagist.org/packages/gelembjuk/auth) ``` require: {"gelembjuk/auth": "dev-master"} ```
+Using composer: [gelembjuk/auth](http://packagist.org/packages/gelembjuk/auth) ``` require: {"gelembjuk/auth": "*"} ```
 
 ### Configuration
 
