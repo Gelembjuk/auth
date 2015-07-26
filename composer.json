@@ -9,7 +9,7 @@
 	"linkedin"
     ],
     "require": {
-        "psr/log": "1.0.*"
+        "gelembjuk/logger": "1.*"
     },
     "require-dev":{},
     "license": "MIT",
