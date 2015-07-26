@@ -1,0 +1,7 @@
+
+example/vendor
+example/vendor/*
+
+# ignore temp folders in examples
+example/tmp
+example/tmp/*
