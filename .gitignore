@@ -6,5 +6,4 @@ example/vendor/*
 example/tmp
 example/tmp/*
 
-example/init.php
 example/init.real.php
