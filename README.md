@@ -74,10 +74,10 @@ $redirecturl = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).
 $socialauthurl = $network->getLoginStartUrl($redirecturl);
 		
 // remember the state. it will be used when complete a social login
-$_SESSION['socialloginsate_'.$network] = $networkobj->serialize();
+$_SESSION['socialloginsate_'.$socialnetwork] = $network->serialize();
 
 // this is optional. you can include a network name in your redirect url and then extract
-$_SESSION['socialloginnetwork'] = $network;
+$_SESSION['socialloginnetwork'] = $socialnetwork;
 
 header("Location: $socialauthurl",true,301);
 exit;
@@ -92,7 +92,7 @@ File completelogin.php
 
 require '../vendor/autoload.php';
 
-$socialnetwork = $_REQUEST['network']; 
+$socialnetwork = $_SESSION['socialloginnetwork']; 
 
 $network = Gelembjuk\Auth\AuthFactory::getSocialLoginObject($socialnetwork,$integrations[$socialnetwork]);
 
@@ -105,7 +105,7 @@ try {
 	}
 	
 	// restore to a state before redirect
-	$network->unSerialize($_SESSION['socialloginsate_'.$network]);
+	$network->unSerialize($_SESSION['socialloginsate_'.$socialnetwork]);
 			
 	$profile = $network->completeLogin($arguments);
 	
