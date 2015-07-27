@@ -5,3 +5,6 @@ example/vendor/*
 # ignore temp folders in examples
 example/tmp
 example/tmp/*
+
+example/init.php
+example/init.real.php
