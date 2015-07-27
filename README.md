@@ -14,7 +14,7 @@ You need to get API keys for each of social networks.
 
 Details on how to register application and get keys for each social network.
 
-** Twitter** Register your application there https://apps.twitter.com/ . Copy Consumer Key and Secret Key in your application settings.
+**Twitter** Register your application there https://apps.twitter.com/ . Copy Consumer Key and Secret Key in your application settings.
 
 **LinkedIn** Go to https://developer.linkedin.com/, Then "My Apps". Create new App. Copy API Key and Secret. You need to set Authorized Redirect URLs. 
 It will be an url to your "Login complete script".
