@@ -11,7 +11,7 @@
 // settings and composer autoloader connection are in a separate file
 require('init.php');
 
-if ($_SESSION['user']['id']) {
+if ($_SESSION['user']['userid']) {
 	// user is already in the system. Show view for authorized users
 	echo '<h2>Hello '.$_SESSION['user']['name'].'</h2>';
 	echo 'For now you can do nothing, except <a href="logout.php">Logout</a>';

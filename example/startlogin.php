@@ -28,10 +28,10 @@ $redirecturl = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).
 $url = $network->getLoginStartUrl($redirecturl);
 		
 // remember the state. it will be used when complete a social login
-$_SESSION['socialloginsate_'.$network] = $networkobj->serialize();
+$_SESSION['socialloginsate_'.$socialnetwork] = $network->serialize();
 
 // this is optional. you can include a network name in your redirect url and then extract
-$_SESSION['socialloginnetwork'] = $network;
+$_SESSION['socialloginnetwork'] = $socialnetwork;
 
 // redirect to auth url. It will forward a user to a social network login page
 header("Location: $url",true,301);

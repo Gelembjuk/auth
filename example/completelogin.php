@@ -35,7 +35,7 @@ try {
 	}
 	
 	// restore to a state before redirect
-	$network->unSerialize($_SESSION['socialloginsate_'.$network]);
+	$network->unSerialize($_SESSION['socialloginsate_'.$socialnetwork]);
 			
 	// if fails then throws exception and controller will catch
 	$profile = $network->completeLogin($arguments);
