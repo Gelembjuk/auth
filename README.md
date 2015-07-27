@@ -62,6 +62,7 @@ File startlogin.php
 
 ```php
 
+// composer autoloader
 require '../vendor/autoload.php';
 
 $socialnetwork = $_REQUEST['network'];  // this is one of: facebook, google, twitter, linkedin
@@ -90,6 +91,7 @@ File completelogin.php
 
 ```php
 
+// composer autoloader
 require '../vendor/autoload.php';
 
 $socialnetwork = $_SESSION['socialloginnetwork']; 
@@ -97,7 +99,7 @@ $socialnetwork = $_SESSION['socialloginnetwork'];
 $network = Gelembjuk\Auth\AuthFactory::getSocialLoginObject($socialnetwork,$integrations[$socialnetwork]);
 
 try {
-	// read some imput parameters needed to complete auth by this social network
+	// read some input parameters needed to complete auth by this social network
 	$arguments = array();
 	
 	foreach ($network->getFinalExtraInputs() as $key) {
@@ -107,6 +109,7 @@ try {
 	// restore to a state before redirect
 	$network->unSerialize($_SESSION['socialloginsate_'.$socialnetwork]);
 			
+	// get authorized user short social profile
 	$profile = $network->completeLogin($arguments);
 	
 	// save user info to a session
