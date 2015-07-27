@@ -14,6 +14,16 @@ You need to get API keys for each of social networks.
 
 Details on how to register application and get keys for each social network.
 
+** Twitter** Register your application there https://apps.twitter.com/ . Copy Consumer Key and Secret Key in your application settings.
+
+**LinkedIn** Go to https://developer.linkedin.com/, Then "My Apps". Create new App. Copy API Key and Secret. You need to set Authorized Redirect URLs. 
+It will be an url to your "Login complete script".
+
+**Facebook** Go to https://developers.facebook.com/. "Add new App" as Web-Page. Copy API Key and Secret. Enable "Web OAuth Login".
+
+**Google** Go to https://code.google.com/apis/console. Create new Project. Enable Google+ API in this project in the APIs section. Then Create new Client ID in Credentials section.
+Choose "Web Application". Set up redirect url , it will be an url to your "Login complete script". Copy Client ID , Client Secret
+
 **NOTE**. For some social networks it is needed to provide a correct login redirect url 
 (callback url) in an application settings when you registering new keys. For example, you have to do this is Google API Console.
 
