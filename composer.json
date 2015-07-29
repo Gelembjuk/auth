@@ -9,6 +9,10 @@
 	"linkedin"
     ],
     "require": {
+	"facebook/php-sdk-v4":"*",
+	"abraham/twitteroauth":"*",
+	"google/apiclient":"1.*",
+	"linkedinapi/linkedin":"1.*",
         "gelembjuk/logger": "1.*"
     },
     "require-dev":{},
