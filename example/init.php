@@ -26,6 +26,10 @@ $integrations = array(
 		'application_name' => 'Your application name',
 		'client_id' => 'fake google api client id',
 		'client_secret' => 'fake google api client secret'
+		),
+	'xingapi' => array(
+		'consumer_key' => 'fake xing consumer key',
+		'consumer_secret' => 'fake xing counsumer secret'
 		)
 	);
 

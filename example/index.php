@@ -24,6 +24,7 @@ if ($_SESSION['user']['userid']) {
 	echo '<li><a href="startlogin.php?network=google">Google</a></li>';
 	echo '<li><a href="startlogin.php?network=twitter">Twitter</a></li>';
 	echo '<li><a href="startlogin.php?network=linkedin">LinkedIn</a></li>';
+	echo '<li><a href="startlogin.php?network=xingapi">Xing</a></li>';
 	
 	echo '</ul>';
 	

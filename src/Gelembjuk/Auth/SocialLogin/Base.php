@@ -65,7 +65,7 @@ abstract class Base {
 	 * We presume there will not be some complex objects
 	 * only integers/strings etc
 	 * 
-	 * @return string $skip JSON string with values of selected properties
+	 * @return string JSON string with values of selected properties
 	 */
 	public function serialize() {
 		$properties = $this->getSerializeVars();

@@ -13,6 +13,7 @@
 	"abraham/twitteroauth":"*",
 	"google/apiclient":"1.*",
 	"linkedinapi/linkedin":"1.*",
+	"league/oauth1-client": "1.*",
         "gelembjuk/logger": "1.*"
     },
     "require-dev":{},
