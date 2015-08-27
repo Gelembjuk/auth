@@ -31,7 +31,7 @@ class Xingapi extends Base {
 	protected $temp_credentials;
 	
 	/**
-	 * Returns twitter login start auth process
+	 * Returns Xing login start auth process
 	 * 
 	 * @param string $redirecturl URL where to redirect after login complete
 	 */
@@ -49,7 +49,7 @@ class Xingapi extends Base {
 		return $server->getAuthorizationUrl($this->temp_credentials);
 	}
 	/**
-	 * Get array of GET/POST arguments posted from twitter back to complete login URL 
+	 * Get array of GET/POST arguments posted from Xing back to complete login URL 
 	 * 
 	 * @return array List of POST/GET arguments names
 	 */
@@ -58,7 +58,7 @@ class Xingapi extends Base {
 	}
 	
 	/**
-	 * Completes social login. Is caled after redirect from twitter auth page
+	 * Completes social login. Is caled after redirect from Xing auth page
 	 * 
 	 * @param array $extrainputs List of POST/GET arguments names
 	 */

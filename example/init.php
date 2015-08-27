@@ -30,6 +30,10 @@ $integrations = array(
 	'xingapi' => array(
 		'consumer_key' => 'fake xing consumer key',
 		'consumer_secret' => 'fake xing counsumer secret'
+		),
+	'liveid' => array(
+		'consumer_key' => 'fake live id consumer key',
+		'consumer_secret' => 'fake live id consumer secret'
 		)
 	);
 
