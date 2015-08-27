@@ -29,7 +29,7 @@ Choose "Web Application". Set up redirect url , it will be an url to your "Login
 
 Login redirect url is a "complete login" url in your app. A script where you do final actions on a social login.
 
-Recommended is to keep all integration options in one array in a separate safe configuration file.
+Recommended is to keep all integration options in one array in a separate safe configuration file. It is not required to have all integrations keys. Add only what you really need.
 
 ```php
 $integrations = array(
@@ -53,6 +53,10 @@ $integrations = array(
 	'xingapi' => array(
 		'consumer_key' => 'fake xing consumer key',
 		'consumer_secret' => 'fake xing counsumer secret'
+		),
+	'liveid' => array(
+		'consumer_key' => 'fake live id consumer key',
+		'consumer_secret' => 'fake live id consumer secret'
 		)
 	);
 
