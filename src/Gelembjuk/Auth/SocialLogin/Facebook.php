@@ -28,6 +28,19 @@ class Facebook extends Base {
 	 */
 	protected $accesstoken; 
 	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+    public function isConfigured() {
+        if (empty($this->options['api_key']) || empty($this->options['secret_key'])) {
+            return false;
+        }
+        return true;
+    }
+    
+	/**
 	 * Returns Faceboo API object inited with API settings
 	 * 
 	 * @return Facebook\Facebook

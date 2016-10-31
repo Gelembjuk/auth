@@ -32,6 +32,20 @@ class Linkedin extends Base {
 	 * @var string
 	 */
 	protected $token;
+	
+	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+    public function isConfigured() {
+        if (empty($this->options['api_key']) || 
+            empty($this->options['api_secret'])) {
+            return false;
+        }
+        return true;
+    }
 	/**
 	 * Returns list of properties to serialise.
 	 * 

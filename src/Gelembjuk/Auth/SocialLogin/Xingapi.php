@@ -31,6 +31,19 @@ class Xingapi extends Base {
 	protected $temp_credentials;
 	
 	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+    public function isConfigured() {
+        if (empty($this->options['consumer_key']) ||
+            empty($this->options['consumer_secret'])) {
+            return false;
+        }
+        return true;
+    }
+	/**
 	 * Returns Xing login start auth process
 	 * 
 	 * @param string $redirecturl URL where to redirect after login complete

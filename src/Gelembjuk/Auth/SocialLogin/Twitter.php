@@ -31,6 +31,20 @@ class Twitter extends Base {
 	protected $request_token;
 	
 	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+    public function isConfigured() {
+        if (empty($this->options['consumer_ke']) ||
+            empty($this->options['consumer_secret'])) {
+            return false;
+        }
+        return true;
+    }
+	
+	/**
 	 * Returns twitter login start auth process
 	 * 
 	 * @param string $redirecturl URL where to redirect after login complete

@@ -34,6 +34,21 @@ class Google extends Base {
 	protected $access_token;
 	
 	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+    public function isConfigured() {
+        if (empty($this->options['application_name']) || 
+            empty($this->options['client_id']) ||
+            empty($this->options['client_secret'])) {
+            return false;
+        }
+        return true;
+    }
+	
+	/**
 	 * Returns list of properties to serialise.
 	 * 
 	 * @param array $skip Defines what properties to skip

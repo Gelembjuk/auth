@@ -134,4 +134,25 @@ abstract class Base {
 	 * @return array User Profile
 	 */
 	abstract public function getUserProfile();
+	
+	/**
+     * Checks if an integration is configured. All options are provided.
+     * This doesn't check if options are correct
+     * 
+     * @return bool
+     */
+	public function isConfigured() {
+        return true;
+	}
+	/**
+     * Checks if an integration is active and works.
+     * 
+     * @return bool
+     */
+    public function isActive() {
+        if (!$this->isConfigured()) {
+            return false;
+        }
+        return true;
+    }
 }

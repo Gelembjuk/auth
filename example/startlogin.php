@@ -21,6 +21,11 @@ if (!isset($integrations[$socialnetwork])) {
 // create social network login object. The second argument is array of API settings for a social network
 $network = Gelembjuk\Auth\AuthFactory::getSocialLoginObject($socialnetwork,$integrations[$socialnetwork]);
 
+if (!$network->isConfigured()) {
+    echo "Your $socialnetwork integration is not configured. Please, configure first!";
+    exit;
+}
+
 //IMPORTANT. his must be an absolute url of your "social login completion" script
 $redirecturl = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).'/completelogin.php';
 

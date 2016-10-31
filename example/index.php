@@ -25,7 +25,7 @@ if ($_SESSION['user']['userid']) {
 	echo '<li><a href="startlogin.php?network=twitter">Twitter</a></li>';
 	echo '<li><a href="startlogin.php?network=linkedin">LinkedIn</a></li>';
 	echo '<li><a href="startlogin.php?network=xingapi">Xing</a></li>';
-	echo '<li><a href="startlogin.php?network=liveid">Live Connect</a></li>';
+	//echo '<li><a href="startlogin.php?network=liveid">Live Connect</a></li>';
 	
 	echo '</ul>';
 	
