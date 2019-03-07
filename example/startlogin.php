@@ -26,8 +26,18 @@ if (!$network->isConfigured()) {
     exit;
 }
 
+if (isset($_SERVER['HTTPS'])) {
+    if ($_SERVER['HTTPS'] == 'off') {
+        $scheme = 'http';
+    } else {
+        $scheme = 'https';
+    }
+} else {
+    $scheme = 'http';
+}
+
 //IMPORTANT. his must be an absolute url of your "social login completion" script
-$redirecturl = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).'/completelogin.php';
+$redirecturl = $scheme.'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).'/completelogin.php';
 
 // get auth url and use redirect url to back to complete login page
 $url = $network->getLoginStartUrl($redirecturl);

@@ -9,7 +9,7 @@
 	"linkedin"
     ],
     "require": {
-	"facebook/php-sdk-v4":"*",
+	"facebook/graph-sdk":"*",
 	"abraham/twitteroauth":"*",
 	"google/apiclient":"1.*",
 	"linkedinapi/linkedin":"1.*",

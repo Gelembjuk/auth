@@ -14,6 +14,12 @@ require('init.php');
 if ($_SESSION['user']['userid']) {
 	// user is already in the system. Show view for authorized users
 	echo '<h2>Hello '.$_SESSION['user']['name'].'</h2>';
+	
+	if (!empty($_SESSION['user']['email'])) {
+        echo '<h3>email: '.$_SESSION['user']['email'].'</h3>';
+	} else {
+        echo '<h3>No email received from the social network</h3>';
+	}
 	echo 'For now you can do nothing, except <a href="logout.php">Logout</a>';
 } else {
 	// user is not authorised. Show login options for him

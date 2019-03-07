@@ -54,7 +54,7 @@ class Facebook extends Base {
 		$fb = new \Facebook\Facebook([
 			'app_id' => $this->options['api_key'],
 			'app_secret' => $this->options['secret_key'],
-			'default_graph_version' => 'v2.2',
+			'default_graph_version' => 'v3.0',
 			]);
 		
 		$this->fb = $fb;
