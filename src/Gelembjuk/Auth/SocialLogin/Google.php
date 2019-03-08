@@ -79,7 +79,7 @@ class Google extends Base {
 		$client->setClientSecret($this->options['client_secret']);
 		$client->setRedirectUri($redirecturl);
 		$client->setDeveloperKey($this->options['api_key']);
-		$client->setScopes(array('https://www.googleapis.com/auth/plus.me','https://www.googleapis.com/auth/userinfo.email'));
+		$client->setScopes(array('https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email'));
 		
 		$this->google = $client;
 		
@@ -133,23 +133,22 @@ class Google extends Base {
 		$oauth2 = new \Google_Service_Oauth2($client);
 		
 		if ($client->getAccessToken()) {
-			$me = $plus->people->get('me');
-			
-			if (isset($me['id'])) {
+            $user = $oauth2->userinfo->get();
+            
+			if (isset($user->id)) {
+                $name = $user->givenName;
+                
+                if (!empty($user->familyName)) {
+                    $name = $user->familyName.' '.$user->givenName;
+                }
+                
 				$profile = array(
-					'userid'=>$me['id'],
-					'name'=>$me['displayName']
+					'userid'=>$user->id,
+					'name' => $name,
+					'imageurl' => $user->picture,
+					'email' => $user->email
 					);
-				
-				if (isset($me['image']) && $me['image']['url'] != '') {
-					$profile['imageurl'] = str_replace('sz=50','sz=200',$me['image']['url']);
-				}
-				
-				$user = $oauth2->userinfo->get();
-				
-				if (isset($user['email'])) {
-					$profile['email'] = $user['email'];
-				}
+
 				return $profile;
 			}
   		}

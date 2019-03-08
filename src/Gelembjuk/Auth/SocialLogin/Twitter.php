@@ -37,7 +37,7 @@ class Twitter extends Base {
      * @return bool
      */
     public function isConfigured() {
-        if (empty($this->options['consumer_ke']) ||
+        if (empty($this->options['consumer_key']) ||
             empty($this->options['consumer_secret'])) {
             return false;
         }
