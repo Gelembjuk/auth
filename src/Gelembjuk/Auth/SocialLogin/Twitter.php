@@ -51,6 +51,7 @@ class Twitter extends Base {
 	 */
 	public function getLoginStartUrl($redirecturl) {
 		$connection = new TwitterOAuth($this->options['consumer_key'],$this->options['consumer_secret']);
+		$connection->setTimeouts(10, 15);
 		$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => $redirecturl));
 		
 		$this->request_token = array();
@@ -87,6 +88,7 @@ class Twitter extends Base {
 		
 		$connection = new TwitterOAuth($this->options['consumer_key'],$this->options['consumer_secret'], 
 			$request_token['oauth_token'], $request_token['oauth_token_secret']);
+		$connection->setTimeouts(10, 15);	
 		
 		$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $extrainputs['oauth_verifier']));
 		
@@ -102,7 +104,7 @@ class Twitter extends Base {
 	public function getUserProfile() {
 		$connection = new TwitterOAuth($this->options['consumer_key'],$this->options['consumer_secret'], 
 			$this->access_token['oauth_token'], $this->access_token['oauth_token_secret']);
-		
+		$connection->setTimeouts(10, 15);
 		$user = $connection->get("account/verify_credentials");
 		
 		return array(
