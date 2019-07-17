@@ -148,4 +148,9 @@ class Facebook extends Base {
 			'email'=>$me->getField('email'),
 			'imageurl'=>'https://graph.facebook.com/'.$me->getId().'/picture?type=large');
 	}
+	public function loginWithTokenID($tokenid)
+    {
+        $this->accesstoken = $tokenid;
+        return $this->getUserProfile();
+    }
 }

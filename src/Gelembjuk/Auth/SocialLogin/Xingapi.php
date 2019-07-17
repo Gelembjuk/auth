@@ -133,4 +133,8 @@ class Xingapi extends Base {
 		
 		return true;
 	}
+	public function loginWithTokenID($tokenid)
+    {
+        
+    }
 }

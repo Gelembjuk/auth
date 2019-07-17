@@ -154,4 +154,21 @@ class Google extends Base {
   		}
   		throw new \Exception('Can not get google profile');
 	}
+    public function loginWithTokenID($tokenid)
+    {
+        $client = $this->getClient($redirecturl);
+        $payload = $client->verifyIdToken($tokenid)->getAttributes();
+        
+        if (!$payload) {
+            throw new \Exception("Wrong token ID");
+        }
+                
+        $profile = array(
+            'userid' => $payload['payload']['sub'],
+            'name' => $payload['payload']['name'],
+            'imageurl' => $payload['payload']['picture'],
+            'email' => $payload['payload']['email']
+        );
+        return $profile;
+    }
 }

@@ -112,5 +112,29 @@ class Twitter extends Base {
 			'name'=>$user->screen_name,
 			'imageurl'=>$user->profile_image_url);
 	}
+	public function loginWithTokenID($tokenid)
+    {
+        $decoded = @base64_decode($tokenid);
+        
+        if (empty($decoded)) {
+            throw new \Exception('Twitter token format is broken');
+        }
+        
+        list($authtoken, $authsecret,$secret, $userid, $username, $useremail) = explode(':::', $decoded);
+        
+        if (empty($username) || empty($secret)) {
+            throw new \Exception('Twitter token format is broken');
+        }
+        $connection = new TwitterOAuth($this->options['consumer_key'],$this->options['consumer_secret'], 
+			$authtoken, $authsecret);
+		$connection->setTimeouts(10, 15);
+		$user = $connection->get("account/verify_credentials");
+		
+		return array(
+			'userid'=>$user->id,
+			'name'=>$user->screen_name,
+			'email' => $useremail,
+			'imageurl'=>$user->profile_image_url);        
+    }
 	
 }

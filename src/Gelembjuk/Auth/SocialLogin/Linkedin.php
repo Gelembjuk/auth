@@ -137,4 +137,8 @@ class Linkedin extends Base {
 			);
 		}
 	}
+	public function loginWithTokenID($tokenid)
+    {
+        
+    }
 }
