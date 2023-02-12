@@ -28,11 +28,18 @@ class Facebook extends Base {
 	 */
 	protected $accesstoken; 
 	/**
+     * Keeps
+     * 
+     * @return bool
+     */
+	protected $userEmail = '';
+	/**
      * Checks if an integration is configured. All options are provided.
      * This doesn't check if options are correct
      * 
      * @return bool
      */
+	
     public function isConfigured() {
         if (empty($this->options['api_key']) || empty($this->options['secret_key'])) {
             return false;
@@ -141,16 +148,30 @@ class Facebook extends Base {
 		$response = $facebook->get('/me', $this->accesstoken);
 		
 		$me = $response->getGraphUser();
+
+		$email = $me->getField('email');
+
+		if (empty($email)) {
+			$email = $this->userEmail;
+		}
 		
 		return array(
-			'userid'=>$me->getId(),
-			'name'=>$me->getName(),
-			'email'=>$me->getField('email'),
-			'imageurl'=>'https://graph.facebook.com/'.$me->getId().'/picture?type=large');
+			'userid' => $me->getId(),
+			'name' => $me->getName(),
+			'email' => $email,
+			'imageurl' => 'https://graph.facebook.com/'.$me->getId().'/picture?type=large');
 	}
 	public function loginWithTokenID($tokenid)
     {
-        $this->accesstoken = $tokenid;
+		$parts = explode(':::', $tokenid);
+
+		if (count($parts) > 1) {
+			$this->accesstoken = $parts[0];
+			$this->userEmail = $parts[1];
+		} else {
+			$this->accesstoken = $tokenid;
+		}
+        
         return $this->getUserProfile();
     }
 }
