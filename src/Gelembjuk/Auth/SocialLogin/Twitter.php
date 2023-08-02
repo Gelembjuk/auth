@@ -114,6 +114,12 @@ class Twitter extends Base {
 	}
 	public function loginWithTokenID($tokenid)
     {
+		if (preg_match('!^oauthtoken:(.+)::(.+)$!', $tokenid, $m)) {
+			$this->access_token = [];
+			$this->access_token['oauth_token'] = $m[1];
+			$this->access_token['oauth_token_secret'] = $m[2];
+			return $this->getUserProfile();
+		}
         $decoded = @base64_decode($tokenid);
         
         if (empty($decoded)) {
