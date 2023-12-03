@@ -4,17 +4,12 @@
     "keywords": [
         "social login",
         "facebook",
-	"google",
-	"twitter",
-	"linkedin"
+	    "google",
+	    "twitter",
+	    "linkedin"
     ],
     "require": {
-	"facebook/graph-sdk":"*",
-	"abraham/twitteroauth":"*",
-	"google/apiclient":"1.*",
-	"linkedinapi/linkedin":"1.*",
-	"league/oauth1-client": "1.*",
-	"firebase/php-jwt":"*",
+	    "firebase/php-jwt":"*",
         "gelembjuk/logger": "1.*"
     },
     "require-dev":{},
