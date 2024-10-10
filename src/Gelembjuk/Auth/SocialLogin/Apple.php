@@ -103,7 +103,7 @@ class Apple extends Base {
         }
         return true;
     }
-	protected function getSerializeVars($skip = array()) 
+	protected function getSerializeVars($skip = []) 
 	{
 		return ['state','redirectUrl'];
 	}
@@ -207,7 +207,7 @@ class Apple extends Base {
 		}
 
 		if (empty($this->username)) {
-			$this->username = 'Apple user ';
+			$this->username = 'Apple user';
 		}
 		if (empty($this->useremail)) {
 			$this->useremail = $token_info->email;

@@ -70,7 +70,7 @@ abstract class Base {
 	public function serialize() {
 		$properties = $this->getSerializeVars();
 		
-		$data = array();
+		$data = [];
 		
 		foreach ($properties as $p) {
 			$data[$p] = $this->$p;

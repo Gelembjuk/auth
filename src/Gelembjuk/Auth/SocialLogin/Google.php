@@ -115,7 +115,7 @@ class Google extends Base {
 		$client = $this->getClient();
 		
 		$client->authenticate($extrainputs['code']);
-		$this->access_token = $client->getAccessToken();
+		$this->access_token = $client->getAccessToken()['access_token'];
 		
 		return $this->getUserProfile();
 	}
@@ -129,12 +129,10 @@ class Google extends Base {
 		
 		$client->setAccessToken($this->access_token);
 		
-		$plus = new \Google_Service_Plus($client);
 		$oauth2 = new \Google_Service_Oauth2($client);
 		
 		if ($client->getAccessToken()) {
             $user = $oauth2->userinfo->get();
-            
 			if (isset($user->id)) {
                 $name = $user->givenName;
                 
