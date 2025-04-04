@@ -78,7 +78,9 @@ class Google extends Base {
 		$client->setClientId($this->options['client_id']);
 		$client->setClientSecret($this->options['client_secret']);
 		$client->setRedirectUri($redirecturl);
-		$client->setDeveloperKey($this->options['api_key']);
+		if (isset($this->options['api_key'])) {
+			$client->setDeveloperKey($this->options['api_key']);
+		}
 		$client->setScopes(array('https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email'));
 		
 		$this->google = $client;
