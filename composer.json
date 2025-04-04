@@ -10,7 +10,7 @@
     ],
     "require": {
 	    "firebase/php-jwt":"*",
-        "gelembjuk/logger": "1.*"
+        "gelembjuk/logger": "2.*"
     },
     "require-dev":{},
     "license": "MIT",
